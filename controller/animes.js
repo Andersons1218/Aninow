@@ -65,7 +65,7 @@ router.delete("/:id", (req, res) => {
   Anime.findByIdAndRemove(id)
     .then((animes) => {
       // redirect to main page after deleting
-      res.redirect("/fruits");
+      res.redirect("");
     })
     // send error as json
     .catch((error) => {
@@ -82,7 +82,7 @@ router.put("/:id", (req, res) => {
   Anime.findByIdAndUpdate(id, req.body, { new: true })
     .then((animes) => {
       // redirect to main page after updating
-      res.redirect("/fruits");
+      res.redirect("/animes");
     })
     // send error as json
     .catch((error) => {
@@ -100,7 +100,7 @@ router.get("/:id", (req, res) => {
   Anime.findById(id)
     .then((animes) => {
       // render the template with the data from the database
-      res.render("fruits/show.liquid", { animes });
+      res.render('', { animes });
     })
     .catch((error) => {
       console.log(error);

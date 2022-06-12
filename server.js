@@ -10,7 +10,8 @@ const path = require('path')
 /////////////////////////////////////////////////
 // Create our Express Application Object Bind Liquid Templating Engine
 /////////////////////////////////////////////////
-const app = require('liquid-express-views')(express(), {root: [path.resolve(__dirname, 'views/')]})
+const app = require('liquid-express-views')(express()) //, {root: [path.resolve(__dirname, 'views/')]})
+
 
 /////////////////////////////////////////////////////
 // Middleware
@@ -25,4 +26,4 @@ app.use(express.static("public")); // serve files from public statically
 // Server Listener
 //////////////////////////////////////////////
 const PORT = process.env.PORT
-app.listen(PORT, () => console.log('Now listening on port ${PORT}'))
+app.listen(PORT, () => console.log(`Now listening on port ${PORT}`))
