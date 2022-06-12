@@ -3,7 +3,7 @@
 ////////////////////////////////////////
 const express = require("express");
 const User = require("../models/user");
-const bcrypt = require("bcryptjs");
+//const bcrypt = require("bcryptjs");
 
 /////////////////////////////////////////
 // Create Route
@@ -16,7 +16,7 @@ const router = express.Router();
 
 // The Signup Routes (Get => form, post => submit form)
 router.get("/signup", (req, res) => {
-  res.render("users/signup.liquid");
+  res.render("views/users/signup.liquid");
 });
 
 router.post("/signup", async (req, res) => {
@@ -42,7 +42,7 @@ router.post("/signup", async (req, res) => {
 
 // The login Routes (Get => form, post => submit form)
 router.get("/login", (req, res) => {
-  res.render("users/login.liquid");
+  res.render("users/login");
 });
 
 
@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
           req.session.username = username;
           req.session.loggedIn = true;
           // redirect to fruits page if successful
-          res.redirect("/fruits");
+          res.redirect("/anime");
         } else {
           // error if password doesn't match
           res.json({ error: "password doesn't match" });
