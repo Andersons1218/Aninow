@@ -2,10 +2,9 @@
 <div>
   {% for anime in animes %}
   <article>
-    <a href="/anime/{{ animes._id }}">
+    <a href="/anime/{{ anime._id }}">
       <h2>
-        {{animes.name}} - {% if fruit.readyToEat == true %} Ripe {% else %} Not
-        Ripe {% endif %}
+        {{anime.name}}
       </h2>
     </a>
   </article>

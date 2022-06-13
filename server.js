@@ -95,7 +95,7 @@ app.get("/anime/seed", (req, res) => {
   });
 });
 
-//////////////////////////////////////////////////
+///////////////////////////////////////
 /// INDEX route
 //////////////////////////////////////
 app.get("/anime", (req, res) => {
@@ -120,6 +120,25 @@ app.get("/anime", (req, res) => {
 app.get("/anime", async (req, res) => {
     const animes = await Anime.find({});
     res.render("anime/index.liquid", { animes });
+  });
+ ////////////////////////////////////////////
+ // SHOW ROUTE
+ ///////////////////////////////////////////
+ // show route
+app.get("/anime/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+  
+    // find the particular anime from the database
+    Anime.findById(id)
+      .then((anime) => {
+        // render the template with the data from the database
+        res.render("anime/show.liquid", { anime });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
   });
   
 
