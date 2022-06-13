@@ -16,7 +16,7 @@ const router = express.Router();
 
 // The Signup Routes (Get => form, post => submit form)
 router.get("/signup", (req, res) => {
-  res.render("/user/signup.liquid");
+  res.render("user/signup.liquid");
 });
 
 router.post("/signup", async (req, res) => {

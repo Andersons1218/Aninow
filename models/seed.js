@@ -4,22 +4,12 @@
 const mongoose = require("./connection")
 const Anime = require("./animeM")
 
-///////////////////////////////////////////
-// Seed Code
-////////////////////////////////////////////
-
-// save the connection in a variable
+// Events for when connection opens/disconnects/errors
+mongoose.connection
 const db = mongoose.connection;
 
 // Make sure code is not run till connected
 db.on("open", () => {
-
-})
-
-
-
-
-app.get("/anime/seed", (req, res) => {
     // array of starter anime
     const startAnimes = [
       {
@@ -38,13 +28,18 @@ app.get("/anime/seed", (req, res) => {
         info: "this is info",
       },
     ];
-  
+
     // Delete all animes
-    Anime.deleteMany({}).then((data) => {
+    Anime.deleteMany({})
+    .then((data) => {
       // Seed Starter Animes
-      Anime.create(startAnimes).then((data) => {
+      Anime.create(startAnimes)
+      .then((data) => {
         // send created animes as response to confirm creation
-        res.json(data);
-      });
-    });
-  });
+        res.json(data)
+        .on("close", () => console.log("Disconnected from Mongoose"))
+      })
+      .catch("error", (error) => console.log(error))
+    })
+  })
+  

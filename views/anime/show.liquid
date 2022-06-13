@@ -4,7 +4,8 @@
           <h2>
             {{ anime.name }} 
           </h2>
-          <h3>{{ anime.image }}</h3>
+          <img src="{{ anime.image }}" >
+           <br>
           <a href="/anime/{{ anime._id }}/edit"><button>Edit</button></a>
           <form action="/anime/{{ anime._id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />
