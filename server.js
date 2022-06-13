@@ -63,7 +63,25 @@ app.get("/", (req, res) => {
   res.send("your server is running... better catch it.");
 });
 
-
+app.get("/anime/seed", (req, res) => {
+    // array of starter animes
+    const startAnimes = [
+      { name: "MHA", image: "https://imgur.com/dalOqwk.png", info: "this is info" },
+      { name: "Nartuo", image: "https://imgur.com/dalOqwk.png", info: "this is info" },
+      { name: "Bleach", image: "https://imgur.com/dalOqwk.png", info: "this is info" },
+      
+    ];
+  
+    // Delete all animes
+    Anime.deleteMany({}).then((data) => {
+      // Seed Starter Animes
+      Anime.create(startAnimes).then((data) => {
+        // send created animes as response to confirm creation
+        res.json(data);
+      });
+    });
+  });
+  
 
 
 
