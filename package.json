@@ -1,7 +1,7 @@
 {
   "name": "project-2",
   "version": "1.0.0",
-  "description": "Welcome to my favorite anime your personal blog! Here you can pick your favorite anime and its managa and save it to check them out later.",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,6 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/Andersons1218/My-Favorite--Anime-Network.git"
   },
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
