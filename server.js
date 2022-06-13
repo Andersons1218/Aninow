@@ -6,7 +6,7 @@ const express = require("express"); // import express
 const morgan = require("morgan"); //import morgan
 const methodOverride = require("method-override");
 const mongoose = require("mongoose");
-const path = require("path")
+const path = require("path");
 
 /////////////////////////////////////////////
 // Database Connection
@@ -46,7 +46,9 @@ const Anime = model("Anime", animeSchema);
 /////////////////////////////////////////////////
 // Create our Express Application Object
 /////////////////////////////////////////////////
-const app = require("liquid-express-views")(express(), {root: [path.resolve(__dirname, 'views/')]})
+const app = require("liquid-express-views")(express(), {
+  root: [path.resolve(__dirname, "views/")],
+});
 
 /////////////////////////////////////////////////////
 // Middleware
@@ -64,26 +66,62 @@ app.get("/", (req, res) => {
 });
 
 app.get("/anime/seed", (req, res) => {
-    // array of starter animes
-    const startAnimes = [
-      { name: "MHA", image: "https://imgur.com/dalOqwk.png", info: "this is info" },
-      { name: "Nartuo", image: "https://imgur.com/dalOqwk.png", info: "this is info" },
-      { name: "Bleach", image: "https://imgur.com/dalOqwk.png", info: "this is info" },
-      
-    ];
-  
-    // Delete all animes
-    Anime.deleteMany({}).then((data) => {
-      // Seed Starter Animes
-      Anime.create(startAnimes).then((data) => {
-        // send created animes as response to confirm creation
-        res.json(data);
-      });
+  // array of starter animes
+  const startAnimes = [
+    {
+      name: "MHA",
+      image: "https://imgur.com/dalOqwk.png",
+      info: "this is info",
+    },
+    {
+      name: "Nartuo",
+      image: "https://imgur.com/dalOqwk.png",
+      info: "this is info",
+    },
+    {
+      name: "Bleach",
+      image: "https://imgur.com/dalOqwk.png",
+      info: "this is info",
+    },
+  ];
+
+  // Delete all animes
+  Anime.deleteMany({}).then((data) => {
+    // Seed Starter Animes
+    Anime.create(startAnimes).then((data) => {
+      // send created animes as response to confirm creation
+      res.json(data);
     });
   });
+});
+
+//////////////////////////////////////////////////
+/// INDEX route
+//////////////////////////////////////
+app.get("/anime", (req, res) => {
+    // find all the fruits
+    Anime.find({})
+      // render a template after they are found
+      .then((animes) => {
+        res.render("anime/index.liquid", { animes });
+      })
+      // send error as json if they aren't
+      .catch((error) => {
+        res.json({ error });
+      });
+  });
+  // index route
+app.get("/anime", (req, res) => {
+    Anime.find({}, (err, animes) => {
+      res.render("anime/index.liquid", { animes });
+    });
+  });
+  // index route
+app.get("/anime", async (req, res) => {
+    const animes = await Anime.find({});
+    res.render("anime/index.liquid", { animes });
+  });
   
-
-
 
 
 //////////////////////////////////////////////

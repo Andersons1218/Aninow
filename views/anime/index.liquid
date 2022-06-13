@@ -1,0 +1,14 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  {% for anime in animes %}
+  <article>
+    <a href="/anime/{{ animes._id }}">
+      <h2>
+        {{animes.name}} - {% if fruit.readyToEat == true %} Ripe {% else %} Not
+        Ripe {% endif %}
+      </h2>
+    </a>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}
