@@ -1,0 +1,14 @@
+{% layout "layout.liquid" %} {% block content %}
+<div>
+  <form action="/anime" method="post">
+    <fieldset>
+      <legend>Add a new Anime</legend>
+      <label>
+        NAME:<input type="text" name="name" placeholder="enter fruit name" />
+      </label>
+     
+    </fieldset>
+    <input type="submit" value="add a new anime" />
+  </form>
+</div>
+{% endblock %}

@@ -99,49 +99,123 @@ app.get("/anime/seed", (req, res) => {
 /// INDEX route
 //////////////////////////////////////
 app.get("/anime", (req, res) => {
-    // find all the fruits
-    Anime.find({})
-      // render a template after they are found
-      .then((animes) => {
-        res.render("anime/index.liquid", { animes });
+  // find all the fruits
+  Anime.find({})
+    // render a template after they are found
+    .then((animes) => {
+      res.render("anime/index.liquid", { animes });
+    })
+    // send error as json if they aren't
+    .catch((error) => {
+      res.json({ error });
+    });
+});
+// index route
+app.get("/anime", (req, res) => {
+  Anime.find({}, (err, animes) => {
+    res.render("anime/index.liquid", { animes });
+  });
+});
+// index route
+app.get("/anime", async (req, res) => {
+  const animes = await Anime.find({});
+  res.render("anime/index.liquid", { animes });
+});
+////////////////////////////////////////////
+// SHOW ROUTE
+///////////////////////////////////////////
+
+app.get("/anime/:id", (req, res) => {
+  // get the id from params
+  const id = req.params.id;
+
+  // find the particular anime from the database
+  Anime.findById(id)
+    .then((anime) => {
+      // render the template with the data from the database
+      res.render("anime/show.liquid", { anime });
+    })
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+});
+/////////////////////////////////////////////
+//NEW ROUTE
+////////////////////////////////////////////
+app.get("/anime/new", (req, res) => {
+  res.render("anime/new.liquid");
+});
+/////////////////////////////////
+// CREATE ROUTE
+////////////////////////////////
+app.post("/anime", (req, res) => {
+  // create the new fruit
+  Anime.create(req.body)
+    .then((anime) => {
+      // redirect user to index page if successfully created item
+      res.redirect("/anime");
+    })
+    // send error as json
+    .catch((error) => {
+      console.log(error);
+      res.json({ error });
+    });
+});
+// edit route
+app.get("/anime/:id/edit", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // get the anime from the database
+    Anime.findById(id)
+      .then((anime) => {
+        // render edit page and send fruit data
+        res.render("anime/edit.liquid", { anime });
       })
-      // send error as json if they aren't
+      // send error as json
       .catch((error) => {
+        console.log(error);
         res.json({ error });
       });
   });
-  // index route
-app.get("/anime", (req, res) => {
-    Anime.find({}, (err, animes) => {
-      res.render("anime/index.liquid", { animes });
-    });
-  });
-  // index route
-app.get("/anime", async (req, res) => {
-    const animes = await Anime.find({});
-    res.render("anime/index.liquid", { animes });
-  });
- ////////////////////////////////////////////
- // SHOW ROUTE
- ///////////////////////////////////////////
- // show route
-app.get("/anime/:id", (req, res) => {
+  ///////////////////////////////////////////
+  ///UPDATE ROUTE
+  //////////////////////////////////////////
+  //update route
+app.put("/anime/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
-  
-    // find the particular anime from the database
-    Anime.findById(id)
+    // update the fruit
+    Anime.findByIdAndUpdate(id, req.body, { new: true })
       .then((anime) => {
-        // render the template with the data from the database
-        res.render("anime/show.liquid", { anime });
+        // redirect to main page after updating
+        res.redirect("/anime");
       })
+      // send error as json
+      .catch((error) => {
+        console.log(error);
+        res.json({ error });
+      });
+  });
+  ///////////////////////////////////////////
+  ///UPDATE ROUTE
+  //////////////////////////////////////////
+  app.delete("/anime/:id", (req, res) => {
+    // get the id from params
+    const id = req.params.id;
+    // delete the anime
+    Anime.findByIdAndRemove(id)
+      .then((anime) => {
+        // redirect to main page after deleting
+        res.redirect("/anime");
+      })
+      // send error as json
       .catch((error) => {
         console.log(error);
         res.json({ error });
       });
   });
   
-
 
 //////////////////////////////////////////////
 // Server Listener
