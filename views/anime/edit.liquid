@@ -1,12 +1,13 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <form action="/anime/{{anime._id}}?_method=PUT" method="post">
+    <form action="/anime/{{animes._id}}?_method=PUT" method="post">
     <fieldset>
       <legend>Add a new Anime</legend>
       <label>
-        NAME:<input type="text" name="name" placeholder="enter fruit name" />
+        NAME:<input type="text" name="name" placeholder="enter name of anime" />
       </label>
     </fieldset>
-    <input type="submit" value="add a new anime" />
+    <input type="submit" value="Edit anime" />
   </form>
 </div>
+{%endblock%}

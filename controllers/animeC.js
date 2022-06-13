@@ -12,8 +12,8 @@ const router = express.Router();
 ///////////////////////////////////////
 /// INDEX route
 //////////////////////////////////////
-router.get("/anime", (req, res) => {
-    // find all the fruits
+router.get("/", (req, res) => {
+    // find all the anime
     Anime.find({})
       // render a template after they are found
       .then((animes) => {
@@ -25,13 +25,13 @@ router.get("/anime", (req, res) => {
       });
   });
   // index route
-  router.get("/anime", (req, res) => {
+  router.get("/", (req, res) => {
     Anime.find({}, (err, animes) => {
       res.render("anime/index.liquid", { animes });
     });
   });
   // index route
-  router.get("/anime", async (req, res) => {
+  router.get("/", async (req, res) => {
     const animes = await Anime.find({});
     res.render("anime/index.liquid", { animes });
   });
@@ -39,7 +39,7 @@ router.get("/anime", (req, res) => {
   // SHOW ROUTE
   ///////////////////////////////////////////
   
-  router.get("/anime/:id", (req, res) => {
+  router.get("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
   
@@ -57,13 +57,13 @@ router.get("/anime", (req, res) => {
   /////////////////////////////////////////////
   //NEW ROUTE
   ////////////////////////////////////////////
-  router.get("/anime/new", (req, res) => {
+  router.get("/new", (req, res) => {
     res.render("anime/new.liquid");
   });
   /////////////////////////////////
   // CREATE ROUTE
   ////////////////////////////////
-  router.post("/anime", (req, res) => {
+  router.post("/", (req, res) => {
     // create the new fruit
     Anime.create(req.body)
       .then((anime) => {
@@ -77,7 +77,7 @@ router.get("/anime", (req, res) => {
       });
   });
   // edit route
-  router.get("/anime/:id/edit", (req, res) => {
+  router.get("/:id/edit", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // get the anime from the database
@@ -95,8 +95,8 @@ router.get("/anime", (req, res) => {
   ///////////////////////////////////////////
   ///UPDATE ROUTE
   //////////////////////////////////////////
-  //update route
-  router.put("/anime/:id", (req, res) => {
+  
+  router.put("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // update the fruit
@@ -116,7 +116,7 @@ router.get("/anime", (req, res) => {
   ///////////////////////////////////////////
   ///UPDATE ROUTE
   //////////////////////////////////////////
-  router.delete("/anime/:id", (req, res) => {
+  router.delete("/:id", (req, res) => {
     // get the id from params
     const id = req.params.id;
     // delete the anime
