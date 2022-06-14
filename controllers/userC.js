@@ -61,7 +61,7 @@ router.post("/login", async (req, res) => {
           req.session.username = username;
           req.session.loggedIn = true;
           // redirect to fruits page if successful
-          res.redirect("user/profile.liquid");
+          res.redirect("/user/profile");
         } else {
           // error if password doesn't match
           res.json({ error: "password doesn't match" });

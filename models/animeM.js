@@ -11,11 +11,11 @@ const { Schema , model } = mongoose
 // Make fruits schema
 const animeSchema = new Schema({
     name: String,
-    image: String,
+    image: Buffer,
     info: String,
     watched: Boolean,
     username: String,
-    comment: [{type: Schema.Types.ObjectId, ref:"Comment"}]
+    //comment: [{type: Schema.Types.ObjectId, ref:"Comment"}]
 })
 const Anime = model("Anime", animeSchema)
 

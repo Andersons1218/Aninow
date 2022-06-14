@@ -1,7 +1,7 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
-    <a href="/views/home.liquid"><button> Add another Anime</button></a>
-  <!-- {% for anime in animes %}
+    <a href="/anime/new"><button> Add another Anime</button></a>
+  {% for anime in animes %}
   <article>
     <a href="/anime/{{ anime._id }}">
       <h2>
@@ -9,6 +9,6 @@
       </h2>
     </a>
   </article>
-  {% endfor %} -->
+  {% endfor %}
 </div>
 {% endblock %}

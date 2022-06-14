@@ -33,7 +33,7 @@ app.use('/anime', AnimeRouter)
 app.use('/user', UserRouter)
 
 app.get("/", (req, res) => {
-  res.render("anime/index.liquid");
+  res.render("home.liquid");
 });
 
 
@@ -42,4 +42,4 @@ app.get("/", (req, res) => {
 // Server Listener
 //////////////////////////////////////////////
 const PORT = process.env.PORT;
-app.listen(PORT, () => console.log(`Now Listening on port ${PORT}`));
+app.listen(PORT, () => {console.log(`Now Listening on port ${PORT}`)});
