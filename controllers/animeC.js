@@ -12,6 +12,9 @@ const router = express.Router();
 ///////////////////////////////////////
 /// INDEX route
 //////////////////////////////////////
+router.get
+
+
 router.get("/", (req, res) => {
   // find all the anime
   Anime.find({})

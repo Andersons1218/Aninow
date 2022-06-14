@@ -9,16 +9,14 @@ const mongoose = require("./connection.js")
 const { Schema , model } = mongoose
 
 // Make fruits schema
-const animeSchema = new Schema({
+const commentsSchema = new Schema({
     name: String,
-    image: String,
-    info: String,
-    watched: Boolean,
-    username: String,
+    commment: String,
+    
 })
-const Anime = model("Anime", animeSchema)
+const Comments = model("Comments", commentsSchema)
 
 ///////////////////////////////////////////////////
 // Export Model
 ///////////////////////////////////////////////////
-module.exports = Anime;
+module.exports = Comments;
