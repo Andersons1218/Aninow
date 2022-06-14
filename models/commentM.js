@@ -10,8 +10,8 @@ const { Schema , model } = mongoose
 
 // Make fruits schema
 const commentsSchema = new Schema({
-    name: String,
     commment: String,
+    user: {type: Schema.Types.ObjectId, ref: "User" }
     
 })
 const Comments = model("Comments", commentsSchema)

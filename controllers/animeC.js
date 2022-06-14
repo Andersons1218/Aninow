@@ -3,6 +3,7 @@
 ////////////////////////////////////////
 const express = require("express");
 const Anime = require("../models/animeM");
+const Comments = require('../models/commentM.js')
 
 /////////////////////////////////////////
 // Create Route
@@ -108,6 +109,7 @@ router.get("/:id/edit", (req, res) => {
   // get the anime from the database
   Anime.findById(id)
     .then((anime) => {
+      console.log(anime)
       // render edit page and send fruit data
       res.render("anime/edit.liquid", { anime });
     })
@@ -125,10 +127,13 @@ router.get("/:id/edit", (req, res) => {
 router.get("/:id", (req, res) => {
   // get the id from params
   const id = req.params.id;
+  console.log(req.session)
 
   // find the particular anime from the database
   Anime.findById(id)
+  .populate('comments')
     .then((anime) => {
+      console.log(anime)
       // render the template with the data from the database
       res.render("anime/show.liquid", { anime });
     })

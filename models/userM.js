@@ -20,7 +20,8 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    watched: [{type: Schema.Types.ObjectId, ref: "Anime" }]
 })
 
 //Make User Model

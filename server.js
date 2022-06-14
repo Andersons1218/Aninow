@@ -11,6 +11,7 @@ const UserRouter = require("./controllers/userC")
 const AnimeRouter = require("./controllers/animeC")
 const session = require('express-session')
 const MongoStore = require('connect-mongo')
+const CommentRouter = require('./controllers/commentC')
 /////////////////////////////////////////////////
 // Create our Express Application Object
 /////////////////////////////////////////////////
@@ -31,7 +32,7 @@ resave: false,}))
 ////////////////////////////////////////////
 app.use('/anime', AnimeRouter)
 app.use('/user', UserRouter)
-
+app.use('/comment', CommentRouter)
 app.get("/", (req, res) => {
   res.render("home.liquid");
 });

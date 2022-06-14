@@ -15,7 +15,7 @@ const animeSchema = new Schema({
     info: String,
     watched: Boolean,
     username: String,
-    //comment: [{type: Schema.Types.ObjectId, ref:"Comment"}]
+    comments: [{type: Schema.Types.ObjectId, ref:"Comments"}]
 })
 const Anime = model("Anime", animeSchema)
 

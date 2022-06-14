@@ -1,6 +1,7 @@
 {% layout "layout.liquid" %} {% block content %}
 <div>
     <a href="/anime/new"><button> Add another Anime</button></a>
+    <a href="/user/login"><button>log out</button></a>
   {% for anime in animes %}
   <article>
     <a href="/anime/{{ anime._id }}">
