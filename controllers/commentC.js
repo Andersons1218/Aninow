@@ -4,6 +4,9 @@
 // const express = require("express");
 // const Comment = require("../models/commentM");
 
+const Anime = require("../models/animeM");
+const User = require("../models/userM");
+
 // /////////////////////////////////////////
 // // Create Route
 // /////////////////////////////////////////
@@ -87,13 +90,21 @@
 // /////////////////////////////////
 // // CREATE ROUTE
 // ////////////////////////////////
-// router.post("/new", (req, res) => {
+// router.post("/:id/comment", (req, res) => {
 //   // create the new anime
-//   Comment.create(req.body)
-//     .then((anime) => {
+//   Comment.create(newComment)
+//     .then((comment) => {
 //       // redirect user to index page if successfully created item
-//       res.redirect("/anime");
+//         Anime.findByIdAndUpdate(id, {$push: {comments: comment}})
+//         .then((anime) =>{
+//             console.log()
+//         })
+//         User.findOneAndUpdate({username:username}, {$push: {comments: comment}})
 //     })
+//     .then((user) =>{
+//         console.log(user)
+//     })
+//     res.redirect(`/home/${id}`)
 //     // send error as json
 //     .catch((error) => {
 //       console.log(error);
@@ -128,7 +139,9 @@
 
 //   // find the particular anime from the database
 //   Comment.findById(id)
-//     .then((anime) => {
+//     .populate('comment').exec(function(err, post){
+//         res.render('user/profile', {comment, username})
+//     })
 //       // render the template with the data from the database
 //       res.render("anime/show.liquid", { anime });
 //     })
@@ -136,7 +149,7 @@
 //       console.log(error);
 //       res.json({ error });
 //     });
-// });
+
 
 // //////////////////////////////////////////
 // // Export the Router

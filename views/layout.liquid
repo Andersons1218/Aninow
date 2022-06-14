@@ -40,8 +40,14 @@
       <h1>The Anime App</h1>
     </header>
 
-    <main>{% block content %}My default content{% endblock %}</main>
-
+    {% layout "layout.liquid" %} {% block content %}
+    <div>
+      <a href="/users/signup"><button>Signup</button></a>
+      <a href="/users/login"><button>Login</button></a>
+    </div>
+    {% endblock %}
+    
+   
     <footer></footer>
   </body>
 </html>
