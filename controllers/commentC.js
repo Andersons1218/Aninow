@@ -10,13 +10,11 @@ const User = require("../models/userM");
 // /////////////////////////////////////////
 // // Create Route
 // /////////////////////////////////////////
- const router = express.Router();
+const router = express.Router();
 
 // ///////////////////////////////////////
 // /// INDEX route
 // //////////////////////////////////////
-
-
 
 // ///////////////////////////////////////////
 // ///DElETE ROUTE
@@ -41,34 +39,32 @@ const User = require("../models/userM");
 // ///UPDATE ROUTE
 // //////////////////////////////////////////
 
-
 // /////////////////////////////////
 // // CREATE ROUTE
 // ////////////////////////////////
 router.post("/:animeid/new", (req, res) => {
   let id = req.params.animeid;
   // create the new anime
-  User.findOne({username: req.session.username})
+  console.log(req.body)
+  User.findOne({ username: req.session.username })
     .then((user) => {
-        console.log(user,"#######")
-        //req.body.user = user._id
-        console.log(req.body, "this is req.body")
+      // console.log(user,"#######")
+      // //req.body.user = user._id
+      // console.log(req.body, "this is req.body")
       Comment.create(req.body)
       .then((comment) => {
         // redirect user to index page if successfully created item
         Anime.findByIdAndUpdate(id, { $push: { comments: comment._id } })
-        .then(
-          (anime) => {
-            console.log(anime, 'this is anime');
+        .then((anime) => {
+            // console.log(anime, "this is anime");
           }
         );
       });
     })
     .then((user) => {
-      console.log(user);
+    //   console.log(user);
     });
-  res
-    .redirect('/')
+  res.redirect(`/anime/${id}`)
     // send error as json
     .catch((error) => {
       console.log(error);
@@ -76,10 +72,7 @@ router.post("/:animeid/new", (req, res) => {
     });
 });
 
-
-
-
 // //////////////////////////////////////////
 // // Export the Router
 // //////////////////////////////////////////
- module.exports = router;
+module.exports = router;

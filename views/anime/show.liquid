@@ -6,15 +6,21 @@
           </h2>
           <img src="{{ anime.image }}" >
            <br>
+           <h3>{{ anime.info }}</h3>
           <a href="/anime/{{ anime._id }}/edit"><button>Edit</button></a>
           <form action="/anime/{{ anime._id }}?_method=DELETE" method="POST">
             <input type="submit" value="Delete" />
           </form>
-          <a href="/user/profile.liquid"><button>Back to List</button></a>
+          <a href="/anime"><button>Back to List</button></a>
         </article>
-        <form action="/comment/{{ anime._id }}/new" method="post">
-        <textarea name="comment" id="" cols="30" rows="10"></textarea>
+        <form action="/anime/{{ anime._id }}/new" method="post">
+        <textarea name="comment" cols="30" rows="10"></textarea>
       <input type="submit" value="Post">
     </form>
   </div>
+  {%for comment in anime.comments %}
+  <div>
+    {{ comment.comment }}
+  </div>
+  {%endfor%}
 {% endblock %}

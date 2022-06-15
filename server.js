@@ -32,7 +32,7 @@ resave: false,}))
 ////////////////////////////////////////////
 app.use('/anime', AnimeRouter)
 app.use('/user', UserRouter)
-app.use('/comment', CommentRouter)
+app.use('/anime', CommentRouter)
 app.get("/", (req, res) => {
   res.render("home.liquid");
 });
