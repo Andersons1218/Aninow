@@ -6,12 +6,13 @@ Has anyone every told you to watch this certain show befor? Well this is the sit
 The user creates their profile and picks which anime they need to watch which goes to their watch list so the can keep track of what they need to watch.
 
 ## WireFrames
-<img scr="IMG_4706.jpeg"/>
+![IMG_4706](https://user-images.githubusercontent.com/104103694/174317069-7c238205-e479-47f2-91b5-717bf0aeced1.jpeg)
 
 ## ERD
-<img scr="IMG_4705.jpeg"/>
+![IMG_4705](https://user-images.githubusercontent.com/104103694/174317073-0e6e827c-8842-4f82-bb35-ef874c03b03b.jpeg)
+
 ## Route
-<img scr="Screen Shot 2022-06-16 at 10.34.52 PM.png"/>
+![Screen Shot 2022-06-16 at 10 34 52 PM](https://user-images.githubusercontent.com/104103694/174317139-6530f210-87c3-4206-a31e-867260c3be69.png)
 
 ## Technology Used
 - HTML
@@ -26,3 +27,4 @@ The user creates their profile and picks which anime they need to watch which go
 - Add API
 - Add more to my schema
 - Add Clips of different anime
+
