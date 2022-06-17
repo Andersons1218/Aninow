@@ -17,23 +17,33 @@ db.on("open", () => {
 // array of starter anime
 const startAnime = [
   {
-    name: "MHA",
-    image:
-      "https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BNTk1NTc0MTYtY2IyNC00OWVjLWJhYWItNDQ0ODdiNWZkYTA5XkEyXkFqcGdeQXVyMTQ3MjMyMTYz._V1_FMjpg_UX1000_.jpg&imgrefurl=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt5626028%2F&tbnid=nnxHgwcTUDyP0M&vet=12ahUKEwiT08G-yqv4AhUzYzUKHQNTDBYQMygAegUIARDYAQ..i&docid=oxN8w7rXU283aM&w=1000&h=1500&q=mha&ved=2ahUKEwiT08G-yqv4AhUzYzUKHQNTDBYQMygAegUIARDYAQ",
-    info: "This is an anime",
+    name: "My Hero Academia",
+    image:"https://i.imgur.com/S8Ez5LC.jpg",
+    info: "A superhero-loving boy without any powers is determined to enroll in a prestigious hero academy and learn what it really means to be a hero. In a world populated with superhumans, the superhero-loving Izuku Midoriya is without power.",
   },
   {
     name: "NARUTO",
-    image:
-      "https://www.google.com/imgres?imgurl=https%3A%2F%2Fm.media-amazon.com%2Fimages%2FM%2FMV5BZmQ5NGFiNWEtMmMyMC00MDdiLTg4YjktOGY5Yzc2MDUxMTE1XkEyXkFqcGdeQXVyNTA4NzY1MzY%40._V1_.jpg&imgrefurl=https%3A%2F%2Fwww.imdb.com%2Ftitle%2Ftt0409591%2F&tbnid=ZtSHvLj4FaRNNM&vet=12ahUKEwjDvYXJyqv4AhXYs3IEHbacBG0QMygBegUIARDhAQ..i&docid=BUoBA9V2ZHC0TM&w=680&h=1000&q=naruto&ved=2ahUKEwjDvYXJyqv4AhXYs3IEHbacBG0QMygBegUIARDhAQ",
-    info: "This is an anime",
+    image: "https://i.imgur.com/8qo23RB.jpg",
+    info: "Tells the story of Naruto Uzumaki, a young ninja who seeks recognition from his peers and dreams of becoming the Hokage, the leader of his village.",
   },
   {
     name: "BLEACH",
-    image:
-      "https://www.google.com/imgres?imgurl=https%3A%2F%2Fimg1.ak.crunchyroll.com%2Fi%2Fspire2%2F52edb7a843abacb4ff0f642c8eda14401325114125_main.jpg&imgrefurl=https%3A%2F%2Fwww.crunchyroll.com%2Fbleach&tbnid=YYX4gbt6pY2G8M&vet=12ahUKEwik0aXRyqv4AhXSqXIEHQTHDCYQMygDegQIARBm..i&docid=elXHy0fgUpGp7M&w=1064&h=1596&q=bleach&ved=2ahUKEwik0aXRyqv4AhXSqXIEHQTHDCYQMygDegQIARBm",
-    info: "This is an anime",
-  },
+    image: "https://i.imgur.com/uUwxkKr.jpg",
+    info: "It follows the adventures of the hotheaded teenager Ichigo Kurosaki, who inherits his parents' destiny after he obtains the powers of a Soul Reaper",
+  },{
+    name: "Full Metal Alchemist Brotherhood",
+    image: "https://i.imgur.com/WrMlBzv.jpg",
+    info:"Abandoned by their father as kids, two young brothers, Edward and Alphonse Elric lived with their mother in a small town called Resembool. After losing their mother to a terminal illness, they try to resurrect her using alchemy - a science which allows you to transform physical matter from one form to another.",
+
+  },{
+    name: "Attack on titan",
+    image: "https://i.imgur.com/jVytksJ.jpg",
+    info: " the story follows Eren Yeager, who vows to exterminate the Titans after they bring about the destruction of his hometown and the death of his mother"
+  },{
+    name:" One Piece",
+    image: "https://i.imgur.com/VZPI3eC.jpg",
+    info: "The series focuses on Monkey D. Luffy, a young man made of rubber, whom, inspired by his childhood idol, the powerful pirate Red-Haired Shanks, sets off on a journey from the East Blue Sea to find the mythical treasure, the One Piece, and proclaim himself the King of the Pirates." 
+  }
 ]
 
 // Delete all anime
