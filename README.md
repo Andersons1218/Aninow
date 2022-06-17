@@ -22,6 +22,7 @@ The user creates their profile and picks which anime they need to watch which go
 - NODE.JS
 - MONGODB
 - MONGOOSE
+- EXPRESS
 
 ## ICEBOX
 - Add API
