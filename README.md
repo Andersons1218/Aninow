@@ -1,4 +1,6 @@
-# My-Favorite-Anime-Network
+https://aninow.herokuapp.com/
+
+# ANINOW
 Has anyone every told you to watch this certain show befor? Well this is the site for you! WELCOME to My Favorite Anime Network! on the sit youll be able to add any anime you want on a watch list to keep track of what you want to watch!
 
 
