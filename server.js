@@ -29,7 +29,7 @@ app.use(express.urlencoded({ extended: true })); // parse urlencoded request bod
 app.use(express.static("public")); // serve files from public statically
 app.use(
   session({
-    secret: process.env.SECRET,
+    secret: process.env.SECRETE,
     store: MongoStore.create({ mongoUrl: process.env.MONGODB_URI }),
     saveUninitialized: true,
     resave: false,
